@@ -1,9 +1,18 @@
-let buttons = document.querySelectorAll('.inputs__row--button');
-let display = document.querySelector('.calculator__display')
-let equal = document.querySelector('#equal');
-let clear = document.querySelector('#clear');
-let del = document.querySelector('#del');
+const buttons = document.querySelectorAll('.inputs__row--button');
+const display = document.querySelector('.calculator__display')
+const equal = document.querySelector('#equal');
+const clear = document.querySelector('#clear');
+const del = document.querySelector('#del');
+const save = document.querySelector('#ms');
+const recall = document.querySelector('#mr');
+const operators = ['+', '-', '*', '/'];
+
 let answer
+let memory
+
+const equals = () => {
+    answer = eval(display.innerText);
+}
 
 for (let button of buttons) {
     button.addEventListener('click', ()=> {
@@ -14,7 +23,7 @@ for (let button of buttons) {
 };
 
 equal.addEventListener('click', ()=> {
-    answer = eval(display.innerText);
+    equals();
     display.innerText = answer;
 });
 
@@ -24,4 +33,17 @@ clear.addEventListener('click', ()=> {
 
 del.addEventListener('click', ()=> {
     display.innerText = String(display.innerText.slice(0, -1));
+});
+
+save.addEventListener('click', ()=> {
+    for (let operator of operators) {
+        if (display.innerText.includes(operator)) {
+            equals();
+            memory = answer;
+        } else (answer = display.innerText)
+    };
+});
+
+recall.addEventListener('click', ()=> {
+    display.innerText = display.innerText.concat(memory);
 });

@@ -1,53 +1,59 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UF-8">
-        <title>
-            Retro Calculator App - Zachary Edward
-        </title>
-    </head>
-    <body>
-        <main>
-            <div class="calculator">
-                <div class="calculator__display" style="border: 2px black solid;">
-                    
-                </div>
-                <div class="calculator__inputs">
-                    <div class="inputs__row">
-                        <button class="inputs__row--button">1</button>
-                        <button class="inputs__row--button">2</button>
-                        <button class="inputs__row--button">3</button>
-                    </div>
-                    <div class="inputs__row">
-                        <button class="inputs__row--button">4</button>
-                        <button class="inputs__row--button">5</button>                        
-                        <button class="inputs__row--button">6</button>
-                    </div>
-                    <div class="inputs__row">
-                        <button class="inputs__row--button">7</button>
-                        <button class="inputs__row--button">8</button>
-                        <button class="inputs__row--button">9</button>
-                    </div>
-                    <div class="inputs__row">
-                        <button class="inputs__row--editor" id="del">del</button>
-                        <button class="inputs__row--button">0</button>
-                        <button class="inputs__row--button">.</button>
-                    </div>
-                    <div class="inputs__row">
-                        <button class="inputs__row--button">+</button>
-                        <button class="inputs__row--button">-</button>
-                        <button class="inputs__row--button">*</button>
-                    </div>
-                    <div class="inputs__row">
-                        <button class="inputs__row--button">/</button>
-                        <button class="inputs__row--editor" id="clear">clear</button>
-                        <button class="inputs__row--button" id="equal">=</button>
-                    </div>
-                </div>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Retro Calculator App - Zachary Edward</title>
+    <link href="index.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="calculator">
+        <div class="calculator__title">
+          <p>Calculator</p>
+        </div>
+        <div class="calculator__body">
+          <div class="calculator__display"></div>
+          <div class="calculator__inputs">
+            <div class="inputs__row">
+              <button class="inputs__row--editor" id="clear">Clear</button>
+              <button class="inputs__row--button digit">7</button>
+              <button class="inputs__row--button digit">8</button>
+              <button class="inputs__row--button digit">9</button>
+              <button class="inputs__row--button operator">/</button>
             </div>
-        </main>
-    </body>
-    <script src="app.js">
-        
-    </script>
+            <div class="inputs__row">
+              <button class="inputs__row--editor" id="del">Back</button>
+              <button class="inputs__row--button digit">4</button>
+              <button class="inputs__row--button digit">5</button>
+              <button class="inputs__row--button digit">6</button>
+              <button class="inputs__row--button operator">*</button>
+            </div>
+            <div class="inputs__row">
+              <button class="inputs__row--editor" id="ms">MS</button>
+              <button class="inputs__row--button digit">1</button>
+              <button class="inputs__row--button digit">2</button>
+              <button class="inputs__row--button digit">3</button>
+              <button class="inputs__row--button operator">-</button>
+            </div>
+            <div class="inputs__row">
+              <button class="inputs__row--editor" id="mr">MR</button>
+              <button class="inputs__row--button digit">0</button>
+              <button class="inputs__row--button digit">.</button>
+              <button class="inputs__row--button operator" id="equal">=</button>
+              <button class="inputs__row--button operator">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="app.js"></script>
 </html>
