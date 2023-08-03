@@ -40,10 +40,12 @@ save.addEventListener('click', ()=> {
         if (display.innerText.includes(operator)) {
             equals();
             memory = answer;
+            localStorage.setItem("memory", memory)
         } else (answer = display.innerText)
     };
 });
 
 recall.addEventListener('click', ()=> {
+    console.log(localStorage.getItem("memory"));
     display.innerText = display.innerText.concat(memory);
 });
