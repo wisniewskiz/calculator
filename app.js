@@ -8,11 +8,16 @@ const recall = document.querySelector('#mr');
 const operators = ['+', '-', '*', '/'];
 
 let answer
-let memory
 
 const equals = () => {
     answer = eval(display.innerText);
 }
+
+const findLastInput = () => {
+   return display.innerText[(display.innerText.length) - 1];
+}
+
+localStorage.clear();
 
 for (let button of buttons) {
     button.addEventListener('click', ()=> {
@@ -25,6 +30,7 @@ for (let button of buttons) {
 equal.addEventListener('click', ()=> {
     equals();
     display.innerText = answer;
+    findLastInput();
 });
 
 clear.addEventListener('click', ()=> {
@@ -37,15 +43,22 @@ del.addEventListener('click', ()=> {
 
 save.addEventListener('click', ()=> {
     for (let operator of operators) {
-        if (display.innerText.includes(operator)) {
+        if (findLastInput() == operator) {
+        } else if (display.innerText.includes(operator)) {
             equals();
-            memory = answer;
-            localStorage.setItem("memory", memory)
-        } else (answer = display.innerText)
+            display.innerText = answer;
+            localStorage.setItem("memory", answer)
+        } else {
+            answer = display.innerText;
+            localStorage.setItem("memory", answer)
+        }
     };
 });
 
 recall.addEventListener('click', ()=> {
-    console.log(localStorage.getItem("memory"));
-    display.innerText = display.innerText.concat(memory);
+    if (localStorage.getItem("memory") ) {
+        display.innerText = display.innerText.concat(localStorage.getItem("memory"));
+    } else {
+        console.log('no memory saved')
+    };
 });
